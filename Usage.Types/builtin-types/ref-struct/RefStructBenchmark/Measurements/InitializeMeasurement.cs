@@ -12,7 +12,7 @@ public class InitializeMeasurement
     {
         for (var i = 0; i < N; i++)
         {
-            var sample = new SampleClass { X = 1, Y = 2 };
+            var sample = new SampleClass(1, 2);
         }
     }
 

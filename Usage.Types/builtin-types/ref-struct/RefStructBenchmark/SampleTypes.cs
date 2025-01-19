@@ -1,6 +1,6 @@
 using BenchmarkDotNet.Attributes;
 
-public class SampleClass()
+public class SampleClass(int x, int y)
 {
     public int X { get; set; }
     public int Y { get; set; }
