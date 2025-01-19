@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Benchmark.StructMeasurement-20250119-173827</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Ubuntu 22.04.5 LTS (Jammy Jellyfish) WSL
+Intel Core i7-9700 CPU 3.00GHz, 1 CPU, 2 logical and 2 physical cores
+.NET SDK 8.0.112
+  [Host]     : .NET 8.0.12 (8.0.1224.60305), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.12 (8.0.1224.60305), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method               </th><th>Mean</th><th>Error</th><th>StdDev</th>
+</tr>
+</thead><tbody><tr><td>MeasureSampleClass</td><td>57.35 ns</td><td>0.828 ns</td><td>0.734 ns</td>
+</tr><tr><td>MeasureSampleStruct</td><td>53.44 ns</td><td>0.762 ns</td><td>0.636 ns</td>
+</tr><tr><td>MeasureSampleReadonlyStruct</td><td>56.26 ns</td><td>1.133 ns</td><td>1.512 ns</td>
+</tr></tbody></table>
+</body>
+</html>
