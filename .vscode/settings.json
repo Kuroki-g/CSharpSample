@@ -3,5 +3,6 @@
   "[csharp]": {
     "editor.defaultFormatter": "csharpier.csharpier-vscode"
   },
-  "makefile.configureOnOpen": false
+  "makefile.configureOnOpen": false,
+  "cSpell.words": ["Diagnoser"]
 }
