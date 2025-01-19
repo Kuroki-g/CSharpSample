@@ -11,4 +11,7 @@ clean:
 
 dump:
 	make build
-	ildasm ./bin/Release/net8.0/Record.Sample.dll > Record.Sample.il 
+	ildasm ./bin/Release/net8.0/Record.Sample.dll -out=Record.Sample.il -utf8
+dump-html:
+	make build
+	ildasm ./bin/Release/net8.0/Record.Sample.dll -out=Record.Sample.il.html -html -utf8
