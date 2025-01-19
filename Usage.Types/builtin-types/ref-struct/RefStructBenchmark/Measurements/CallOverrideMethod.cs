@@ -3,72 +3,60 @@ using BenchmarkDotNet.Attributes;
 namespace RefStructBenchmark.Measurements;
 
 [MemoryDiagnoser]
+/// <summary>
+/// NOTE: 厳密に言えばインスタンス作成のコストがかかるが、ToStringメソッドの呼び出しによるものに比べれば小さいため無視する。
+/// </summary>
 public class CallOverrideMethod
 {
     private const int N = 1000;
 
-    private readonly SampleClass _sampleClass;
-
-    private readonly SampleStruct _sampleStruct;
-
-    private readonly SampleStructRef _sampleStructRef;
-
-    private readonly SampleReadonlyStruct _sampleReadonlyStruct;
-
-    private readonly SampleReadonlyStructRef _sampleReadonlyStructRef;
-
-    [GlobalSetup]
-    public void GlobalSetup()
-    {
-        _sampleClass = new SampleClass { X = 1, Y = 2 };
-        _sampleStruct = new SampleStruct(1, 2);
-        _sampleStructRef = new SampleStructRef(1, 2);
-        _sampleReadonlyStruct = new SampleReadonlyStruct(1, 2);
-        _sampleReadonlyStructRef = new SampleReadonlyStructRef(1, 2);
-    }
-
-    [Benchmark]
+    [Benchmark(Baseline = true)]
     public void CallOverrideMethodClass()
     {
+        var sampleClass = new SampleClass(1, 2);
         for (var i = 0; i < N; i++)
         {
-            _sampleClass.ToString();
+            sampleClass.ToString();
         }
     }
 
     [Benchmark]
     public void CallOverrideMethodStruct()
     {
+        var sampleStruct = new SampleStruct(1, 2);
         for (var i = 0; i < N; i++)
         {
-            _sampleStruct.ToString();
+            sampleStruct.ToString();
         }
     }
 
     [Benchmark]
     public void CallOverrideMethodStructRef()
     {
+        var sampleStructRef = new SampleStructRef(1, 2);
         for (var i = 0; i < N; i++)
         {
-            _sampleStructRef.ToString();
+            sampleStructRef.ToString();
         }
     }
 
     [Benchmark]
     public void CallOverrideMethodReadonlyStruct()
     {
+        var sampleReadonlyStruct = new SampleReadonlyStruct(1, 2);
         for (var i = 0; i < N; i++)
         {
-            _sampleReadonlyStruct.ToString();
+            sampleReadonlyStruct.ToString();
         }
     }
 
     [Benchmark]
     public void CallOverrideMethodReadonlyStructRef()
     {
+        var sampleReadonlyStructRef = new SampleReadonlyStructRef(1, 2);
         for (var i = 0; i < N; i++)
         {
-            _sampleReadonlyStructRef.ToString();
+            sampleReadonlyStructRef.ToString();
         }
     }
 }
