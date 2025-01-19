@@ -7,7 +7,7 @@ public class InitializeMeasurement
 {
     private const int N = 1000;
 
-    [Benchmark]
+    [Benchmark(Baseline = true)]
     public void InitializeClass()
     {
         for (var i = 0; i < N; i++)
