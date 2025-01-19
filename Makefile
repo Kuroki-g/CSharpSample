@@ -19,3 +19,9 @@ clean:
 	dotnet clean $(PROJECT_NAME).sln
 
 .PHONY: all build test clean
+
+# Format the code
+fmt:
+	dotnet tool run dotnet-csharpier .
+
+.PHONY: all build test clean format
